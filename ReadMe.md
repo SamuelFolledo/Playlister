@@ -124,6 +124,11 @@ $ pip3 install -r requirements.txt
 ----------------------------------------------------------
 
 ### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/creating-a-playlist)
+| URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
+|---------------------	|-----------	|---------	|---------------------------	|
+| /playlists          	| GET       	| index   	| See all playlists         	|
+| /playlists/new      	| GET       	| new     	| See new playlist form     	|
+| /playlists          	| POST      	| create  	| Create a new playlist     	|
 - __POST__ - is a form method that submits/create a POST request to the url, ```/playlists```
     - Make sure we have the route that detechts post requests
 - __For our server route to accepts a POST HTTP method__
@@ -144,12 +149,14 @@ $ pip3 install -r requirements.txt
 
 ### [__PAGE 5) SHOW ROUTE: SEE ONE RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/showing-one-playlist)
 - __show__ - action that give each single playlist its own page and unique url path
------------------------------
+
+| URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
+|---------------------	|-----------	|---------	|---------------------------	|
 | /playlists/:id      	| GET       	| show    	| See one playlist          	|
-------------------
+
 - __Url__ or __Request Parameter__ - using ```_id``` attribute for our ```:id``` in the route
     - we can access it in Flask using a paramter inside of the contoller route
-- __Show on playlist__
+- __Show one playlist__
     ```
     <!-- templates/playlists_index.html -->
     {% extends 'base.html' %}
@@ -171,7 +178,6 @@ $ pip3 install -r requirements.txt
     return render_template("playlists_show.html", playlist = playlist_id)
     ```
 
-- __Get a single playlist from MongoDB__
 
 
 ----------------------------------------------------------
