@@ -76,13 +76,13 @@ $ pip3 install -r requirements.txt
 
 | URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
 |:---------------------	|:-----------	|:---------	|:---------------------------	|
-|  /playlists          	| GET       	| index   	| See all playlists         	|
-|  /playlists/new      	| GET       	| new     	| See new playlist form     	|
-|  /playlists          	| POST      	| create  	| Create a new playlist     	|
-|  /playlists/:id      	| GET       	| show    	| See one playlist          	|
-|  /playlists/:id/edit 	| GET       	| edit    	| See an edit playlist form 	|
-|  /playlists/:id      	| PATCH/PUT 	| update  	| Update a playlist         	|
-|  /playlists/:id      	| DELETE    	| destroy 	| Delete a playlist         	|
+| /playlists          	| GET       	| index   	| See all playlists         	|
+| /playlists/new      	| GET       	| new     	| See new playlist form     	|
+| /playlists          	| POST      	| create  	| Create a new playlist     	|
+| /playlists/:id      	| GET       	| show    	| See one playlist          	|
+| /playlists/:id/edit 	| GET       	| edit    	| See an edit playlist form 	|
+| /playlists/:id      	| PATCH/PUT 	| update  	| Update a playlist         	|
+| /playlists/:id      	| DELETE    	| destroy 	| Delete a playlist         	|
 
 
 
