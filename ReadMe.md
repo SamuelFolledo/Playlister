@@ -73,6 +73,7 @@ $ pip3 install -r requirements.txt
 - __Resourcesful Routes__ - common actions all routes have
 
 - Review this table of routes
+
 | URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
 |:---------------------	|:-----------	|:---------	|:---------------------------	|
 |  /playlists          	| GET       	| index   	| See all playlists         	|
