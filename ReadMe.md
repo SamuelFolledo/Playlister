@@ -35,7 +35,7 @@ $ pip3 install -r requirements.txt
 
 --------------------------------------------------------------------------------------------------------
 ## Notes 
-### [__1) MAKING A PLAN & STARTING A FLASK PROJECT__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/start-a-flask-project)
+### [__PAGE 1) MAKING A PLAN & STARTING A FLASK PROJECT__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/start-a-flask-project)
 - __Agile Sprints__ - updating often and adding more User Story to your software
 - __User Story__ - term instead of "feature" to exmphasize the user's experience in their design, development, and testing which is called __User Centered Development__
 - __Backlog__ - used to organize user stories and prioritze what you build and when
@@ -64,6 +64,57 @@ $ pip3 install -r requirements.txt
 - __.gitignore__ - a file which specifies any file types, files, or folders that we do not want to include in our Git repository. Write the following in our .gitignore file
     - ```env``` - is not necessary for anyone else who is reading or running this code, which is what requirements.txt file is for
     - ```__pycache__``` to ignore Python __generated files__ which are contained in pychache directory
+
+
+### [__PAGE 2) SEE ALL PLAYLISTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/index-playlists)
+
+
+### [__PAGE 3) ADDING A MONGODB DATABASE TO YOUR APP__]()
+
+
+
+### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__]()
+
+
+
+### [__PAGE 5) SHOW ROUTE: SEE ONE RESOURCE__]()
+
+
+
+### [__PAGE 6) EDIT ROUTE: EDITING AND UPDATING A RESOURCE__]()
+
+
+
+### [__PAGE 7) DELETE ROUTE: DESTROYING A RESOURCE__]()
+
+
+
+### [__PAGE 8) ADDING TESTS__]()
+
+
+
+### [__PAGE 9) STYLING WITH BOOSTRAP__]()
+
+
+
+### [__PAGE 10) PUSH TO PRODUCTION WITH HEROKU__]()
+
+
+
+### [__PAGE 11) ADDING COMMENTS__]()
+
+
+
+### [__PAGE 12) ADDING A ROUTE FOR COMMENTS__]()
+
+
+
+### [__PAGE 13) DELETE COMMENTS__]()
+
+
+
+### [__PAGE 14) BELLS AND WHISTLES__]()
+
 
 
 
