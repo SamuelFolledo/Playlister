@@ -32,8 +32,8 @@ $ pip3 install -r requirements.txt
 ```
 (env) $ export FLASK_ENV=development; flask run
 ```
+===============================
 
---------------------------------------------------------------------------------------------------------
 ## Notes 
 ### [__PAGE 1) MAKING A PLAN & STARTING A FLASK PROJECT__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/start-a-flask-project)
 - __Agile Sprints__ - updating often and adding more User Story to your software
@@ -64,7 +64,7 @@ $ pip3 install -r requirements.txt
 - __.gitignore__ - a file which specifies any file types, files, or folders that we do not want to include in our Git repository. Write the following in our .gitignore file
     - ```env``` - is not necessary for anyone else who is reading or running this code, which is what requirements.txt file is for
     - ```__pycache__``` to ignore Python __generated files__ which are contained in pychache directory
-
+----------------------------------------------------------
 
 ### [__PAGE 2) SEE ALL PLAYLISTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/index-playlists)
 - __Resource__ is an abstract object that we use to organize data, code, and the features of our app
@@ -83,13 +83,12 @@ $ pip3 install -r requirements.txt
 | /playlists/:id/edit 	| GET       	| edit    	| See an edit playlist form 	|
 | /playlists/:id      	| PATCH/PUT 	| update  	| Update a playlist         	|
 | /playlists/:id      	| DELETE    	| destroy 	| Delete a playlist         	|
-
-
+----------------------------------------------------------
 
 
 ### [__PAGE 3) ADDING A MONGODB DATABASE TO YOUR APP__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-mongodb)
 - __JSON__ or __JavaScript Object Notation__ - a way to organize data to transmit it across the internet. It looks like a dictionary with key-value separated by a ```:``` and surrounded by a ```{ }```
-- __MongoDB database__ - allows you to save JSON just as they are as __key value pairs__
+- __[MongoDB database](https://www.mongodb.com)__ - allows you to save JSON just as they are as __key value pairs__
 - __Single Document__ - what you call each object, which is why it is called a __document-based database__
 - __collections__ - groups that these documents are collected into
 - __\_id__ - a key which is a unique identifier number MongoDB gives each document
@@ -113,7 +112,7 @@ $ pip3 install -r requirements.txt
     ```
     $ mongod # SHORT FOR "MONGO DAEMON"
     ```
-- __PyMongo - A MongoDB Library__ used to read MongoDB in our server code
+- __[PyMongo](https://api.mongodb.com/python/current/) - A [MongoDB](https://www.mongodb.com) Library__ used to read MongoDB in our server code
     - __Install PyMongo__ library
     ```
     (env) $ pip3 install pymongo
@@ -122,51 +121,74 @@ $ pip3 install -r requirements.txt
     - __Initialize MongoDB in ```app.py``` and connect to our database that we'll name after our app
 - ```find()``` - a method that returns an iteratable of all playlists in our database
     - call it in app.py when you call render_template()
+----------------------------------------------------------
 
 ### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/creating-a-playlist)
+- __For our server route to accepts a POST HTTP method__
+    - Need to import from flask
+        ```
+        from flask import Flask, render_template, request, redirect, url_for
+        ```
+        - ```request.form``` - it is built-in in Flask which is needed to accept form data
+            - gives us a dictionary containing the data that was sent in the page's HTML form. When you submit your form, you should see it log in in your terminal like this:
+            ```
+            { 'title': 'Creating a Playlist',
+            'description': 'a sample playlist description' }
+            ```
+        - ```redirect``` and ```url_for``` which we'll use to redirect the user to another page on our site
 
 
+----------------------------------------------------------
 
 ### [__PAGE 5) SHOW ROUTE: SEE ONE RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/showing-one-playlist)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 6) EDIT ROUTE: EDITING AND UPDATING A RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/editing-and-deleting-a-playlist)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 7) DELETE ROUTE: DESTROYING A RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/deleting-a-playlist)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 8) ADDING TESTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-tests)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 9) STYLING WITH BOOSTRAP__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-bootstrap)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 10) PUSH TO PRODUCTION WITH HEROKU__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/push-to-heroku)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 11) ADDING COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-comments)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 12) ADDING A ROUTE FOR COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-route-for-comments)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 13) DELETE COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/deleting-comments)
 
 
+----------------------------------------------------------
 
 ### [__PAGE 14) BELLS AND WHISTLES__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/bells-and-whistles)
 
 
-
+----------------------------------------------------------
 
 ## Knowledge Outcomes
 - Build a web app using [Flask](https://flask.palletsprojects.com/en/1.1.x/) and [Jinja2](https://jinja.palletsprojects.com/en/2.10.x/)
@@ -179,3 +201,5 @@ $ pip3 install -r requirements.txt
 - [Make School Courses](https://www.makeschool.com/academy)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/) to build the web
 - [Jinja2](https://jinja.palletsprojects.com/en/2.10.x/) for templating
+- [MongoDB](https://www.mongodb.com)
+- [PyMongo](https://api.mongodb.com/python/current/)
