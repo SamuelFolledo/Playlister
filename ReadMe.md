@@ -74,7 +74,7 @@ $ pip3 install -r requirements.txt
 
 - Review this table of routes
 | URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
-|---------------------	|-----------	|---------	|---------------------------	|
+|---------------------	|:-----------:  |--------- :|---------------------------   :|
 | /playlists          	| GET       	| index   	| See all playlists         	|
 | /playlists/new      	| GET       	| new     	| See new playlist form     	|
 | /playlists          	| POST      	| create  	| Create a new playlist     	|
