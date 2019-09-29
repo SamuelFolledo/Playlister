@@ -3,7 +3,7 @@ You might have heard of the video site [YouTube](https://www.youtube.com) where 
 
 
 ## To Run
-- __1) Make sure you have Python installed__ - to check if you python, type python3 to the terminal and should see the following
+- __1) Make sure you have Python installed__ - to check if you python, type ```python3``` to the terminal and should see the following
 ```
 $ python3
 Python 3.5.2 (default, Nov 17 2016, 17:05:23)
@@ -68,7 +68,7 @@ $ pip3 install -r requirements.txt
 
 ### [__PAGE 2) SEE ALL PLAYLISTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/index-playlists)
 - __Resource__ is an abstract object that we use to organize data, code, and the features of our app
-    - User resource to keep track of logging in and out, email and passwords, and people's birthdays. \
+    - User resource to keep track of logging in and out, email and passwords, and people's birthdays
     - can also be related to each other
 - __Resourcesful Routes__ - common actions all routes have
 
@@ -124,6 +124,8 @@ $ pip3 install -r requirements.txt
 ----------------------------------------------------------
 
 ### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/creating-a-playlist)
+- __POST__ - is a form method that submits/create a POST request to the url, ```/playlists```
+    - Make sure we have the route that detechts post requests
 - __For our server route to accepts a POST HTTP method__
     - Need to import from flask
         ```
@@ -141,6 +143,35 @@ $ pip3 install -r requirements.txt
 ----------------------------------------------------------
 
 ### [__PAGE 5) SHOW ROUTE: SEE ONE RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/showing-one-playlist)
+- __show__ - action that give each single playlist its own page and unique url path
+-----------------------------
+| /playlists/:id      	| GET       	| show    	| See one playlist          	|
+------------------
+- __Url__ or __Request Parameter__ - using ```_id``` attribute for our ```:id``` in the route
+    - we can access it in Flask using a paramter inside of the contoller route
+- __Show on playlist__
+    ```
+    <!-- templates/playlists_index.html -->
+    {% extends 'base.html' %}
+    {% block content %}
+        <h1>Playlists</h1>
+        <a href="/playlists/new"> New Playlist</a>
+        {% for playlist in playlists %}
+            <h2><a href = "/playlists/{{playlist._id}}">{{playlist.title}}</a></h2>
+            <small>{{ playlist.description }}</small>
+        {% endfor %}
+    {% endblock %}
+    ```
+
+    ```
+    #in app.py
+    @app.route("/playlists/<playlist_id>")
+    def playlists_show(playlist_id):
+    playlist_id = playlists.find_one({"_id": ObjectId(playlist_id)})
+    return render_template("playlists_show.html", playlist = playlist_id)
+    ```
+
+- __Get a single playlist from MongoDB__
 
 
 ----------------------------------------------------------
