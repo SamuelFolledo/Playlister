@@ -67,53 +67,69 @@ $ pip3 install -r requirements.txt
 
 
 ### [__PAGE 2) SEE ALL PLAYLISTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/index-playlists)
+- __Resource__ is an abstract object that we use to organize data, code, and the features of our app
+    - User resource to keep track of logging in and out, email and passwords, and people's birthdays. \
+    - can also be related to each other
+- __Resourcesful Routes__ - common actions all routes have
 
-
-### [__PAGE 3) ADDING A MONGODB DATABASE TO YOUR APP__]()
-
-
-
-### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__]()
-
-
-
-### [__PAGE 5) SHOW ROUTE: SEE ONE RESOURCE__]()
-
-
-
-### [__PAGE 6) EDIT ROUTE: EDITING AND UPDATING A RESOURCE__]()
-
-
-
-### [__PAGE 7) DELETE ROUTE: DESTROYING A RESOURCE__]()
+- Review this table of routes
+| URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
+|---------------------	|-----------	|---------	|---------------------------	|
+| /playlists          	| GET       	| index   	| See all playlists         	|
+| /playlists/new      	| GET       	| new     	| See new playlist form     	|
+| /playlists          	| POST      	| create  	| Create a new playlist     	|
+| /playlists/:id      	| GET       	| show    	| See one playlist          	|
+| /playlists/:id/edit 	| GET       	| edit    	| See an edit playlist form 	|
+| /playlists/:id      	| PATCH/PUT 	| update  	| Update a playlist         	|
+| /playlists/:id      	| DELETE    	| destroy 	| Delete a playlist         	|
 
 
 
-### [__PAGE 8) ADDING TESTS__]()
+### [__PAGE 3) ADDING A MONGODB DATABASE TO YOUR APP__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-mongodb)
 
 
 
-### [__PAGE 9) STYLING WITH BOOSTRAP__]()
+### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/creating-a-playlist)
 
 
 
-### [__PAGE 10) PUSH TO PRODUCTION WITH HEROKU__]()
+### [__PAGE 5) SHOW ROUTE: SEE ONE RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/showing-one-playlist)
 
 
 
-### [__PAGE 11) ADDING COMMENTS__]()
+### [__PAGE 6) EDIT ROUTE: EDITING AND UPDATING A RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/editing-and-deleting-a-playlist)
 
 
 
-### [__PAGE 12) ADDING A ROUTE FOR COMMENTS__]()
+### [__PAGE 7) DELETE ROUTE: DESTROYING A RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/deleting-a-playlist)
 
 
 
-### [__PAGE 13) DELETE COMMENTS__]()
+### [__PAGE 8) ADDING TESTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-tests)
 
 
 
-### [__PAGE 14) BELLS AND WHISTLES__]()
+### [__PAGE 9) STYLING WITH BOOSTRAP__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-bootstrap)
+
+
+
+### [__PAGE 10) PUSH TO PRODUCTION WITH HEROKU__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/push-to-heroku)
+
+
+
+### [__PAGE 11) ADDING COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-comments)
+
+
+
+### [__PAGE 12) ADDING A ROUTE FOR COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-route-for-comments)
+
+
+
+### [__PAGE 13) DELETE COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/deleting-comments)
+
+
+
+### [__PAGE 14) BELLS AND WHISTLES__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/bells-and-whistles)
 
 
 
