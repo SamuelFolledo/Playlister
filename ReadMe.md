@@ -88,8 +88,40 @@ $ pip3 install -r requirements.txt
 
 
 ### [__PAGE 3) ADDING A MONGODB DATABASE TO YOUR APP__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-mongodb)
-
-
+- __JSON__ or __JavaScript Object Notation__ - a way to organize data to transmit it across the internet. It looks like a dictionary with key-value separated by a ```:``` and surrounded by a ```{ }```
+- __MongoDB database__ - allows you to save JSON just as they are as __key value pairs__
+- __Single Document__ - what you call each object, which is why it is called a __document-based database__
+- __collections__ - groups that these documents are collected into
+- __\_id__ - a key which is a unique identifier number MongoDB gives each document
+    - we can use this attribute to retrieve the whole document later
+- __Installing MongoDB__ -
+    - To install mongodb using homebrew
+    ```
+    $ brew update
+    $ brew tap mongodb/brew
+    $ brew install mongodb-community@4.2
+    ```
+    - __Also need to create a folder to save your databases on your computer__
+    ```
+    $ sudo mkdir -p /data/db
+    ```
+    - __Change owner__ if you have problems with permissions with this folder you can "change owner" of the directory using this command
+    ```
+    $ sudo mkdir -p /data/db
+    ```
+    - Need to __start the MongoDB daemon__ in order to user MongoDB and make it accessible frm your web server
+    ```
+    $ mongod # SHORT FOR "MONGO DAEMON"
+    ```
+- __PyMongo - A MongoDB Library__ used to read MongoDB in our server code
+    - __Install PyMongo__ library
+    ```
+    (env) $ pip3 install pymongo
+    ```
+    - Remember to run ```pip freeze > requirements.txt``` to update your list of installed packages!
+    - __Initialize MongoDB in ```app.py``` and connect to our database that we'll name after our app
+- ```find()``` - a method that returns an iteratable of all playlists in our database
+    - call it in app.py when you call render_template()
 
 ### [__PAGE 4) CREATE ROUTE: SAVING A NEW RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/creating-a-playlist)
 
