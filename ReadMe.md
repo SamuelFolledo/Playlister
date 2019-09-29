@@ -157,8 +157,8 @@ $ pip3 install -r requirements.txt
 - __Url__ or __Request Parameter__ - using ```_id``` attribute for our ```:id``` in the route
     - we can access it in Flask using a paramter inside of the contoller route
 - __Show one playlist__
+    - In templates/playlists_index.html
     ```
-    <!-- templates/playlists_index.html -->
     {% extends 'base.html' %}
     {% block content %}
         <h1>Playlists</h1>
@@ -169,9 +169,10 @@ $ pip3 install -r requirements.txt
         {% endfor %}
     {% endblock %}
     ```
-
+    - In app.py
     ```
-    #in app.py
+    from flask import Flask, render_template, request, redirect, url_for
+    ...
     @app.route("/playlists/<playlist_id>")
     def playlists_show(playlist_id):
     playlist_id = playlists.find_one({"_id": ObjectId(playlist_id)})
