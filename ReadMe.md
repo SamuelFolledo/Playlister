@@ -158,37 +158,60 @@ $ pip3 install -r requirements.txt
     - we can access it in Flask using a paramter inside of the contoller route
 - __Show one playlist__
     - In templates/playlists_index.html
-    ```
-    {% extends 'base.html' %}
-    {% block content %}
-        <h1>Playlists</h1>
-        <a href="/playlists/new"> New Playlist</a>
-        {% for playlist in playlists %}
-            <h2><a href = "/playlists/{{playlist._id}}">{{playlist.title}}</a></h2>
-            <small>{{ playlist.description }}</small>
-        {% endfor %}
-    {% endblock %}
-    ```
+        ```
+        {% extends 'base.html' %}
+        {% block content %}
+            <h1>Playlists</h1>
+            <a href="/playlists/new"> New Playlist</a>
+            {% for playlist in playlists %}
+                <h2><a href = "/playlists/{{playlist._id}}">{{playlist.title}}</a></h2>
+                <small>{{ playlist.description }}</small>
+            {% endfor %}
+        {% endblock %}
+        ```
     - In app.py
-    ```
-    from flask import Flask, render_template, request, redirect, url_for
-    ...
-    @app.route("/playlists/<playlist_id>")
-    def playlists_show(playlist_id):
-    playlist_id = playlists.find_one({"_id": ObjectId(playlist_id)})
-    return render_template("playlists_show.html", playlist = playlist_id)
-    ```
+        ```
+        from flask import Flask, render_template, request, redirect, url_for
+        ...
+        @app.route("/playlists/<playlist_id>")
+        def playlists_show(playlist_id):
+        playlist_id = playlists.find_one({"_id": ObjectId(playlist_id)})
+        return render_template("playlists_show.html", playlist = playlist_id)
+        ```
 
 
 
 ----------------------------------------------------------
 
 ### [__PAGE 6) EDIT ROUTE: EDITING AND UPDATING A RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/editing-and-deleting-a-playlist)
+| URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
+|---------------------	|-----------	|---------	|---------------------------	|
+| /playlists          	| GET       	| edit   	| See an edit playlist form    	|
+| /playlists/new      	| PUT/PATCH     | update    | Update playlist               |
+- __Edit and Update__ are similar to New and Create. 
+    - 1) Need a link to the edit route that renders ```playlists_edit``` template
+    - 2) Submit that edit form to the update route which will redirect to the show action
+- __PUT vs. POST__ - although our update action will be expecting a PUT HTTP action, HTML forms cannot take an action attribute of ```PUT```. Therefore, we'll make it a ```POST``` action instead
+- ```value = ' '``` = we are using the ```value``` html attribute to pass in the values of the playlist we are trying to edit
+- ```<textarea>{{ }}</textarea>``` - the <textarea> HTML tag does not have a value attribute, so its contents must go between its open and close tags
+- In ```app.py```:
 
+- In ```templates/playlists_show.html```:
+
+- Add a ```templates/playlists_edit.html``` template:
+
+- __Partial Template__ - pulling a code out into its own template
+    ```
+    {% include "partials/playlists_form.html" %} <!-- put our form file from playlists_form.html file -->
+    ```
 
 ----------------------------------------------------------
 
 ### [__PAGE 7) DELETE ROUTE: DESTROYING A RESOURCE__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/deleting-a-playlist)
+| URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
+|---------------------	|-----------	|---------	|---------------------------	|
+| /playlists          	| DELETE       	| Destroy   | Delete a playlist         	|
+
 
 
 ----------------------------------------------------------

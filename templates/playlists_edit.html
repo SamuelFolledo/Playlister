@@ -1,0 +1,8 @@
+<!-- templates/playlists_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/playlists/{{playlist._id}}'> <!--The form tag has an HTML attribute called action that has a value equal to the path we want our form to submit its data to. /playlists is the route to our create action-->
+    {% include "partials/playlists_form.html" %} <!-- put our form file from playlists_form.html file -->
+</form>
+{% endblock %}

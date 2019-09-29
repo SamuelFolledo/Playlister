@@ -1,0 +1,34 @@
+<!-- templates/partials/playlists_form.html -->
+
+<fieldset> <!--The fieldset element represents a set of form controls optionally grouped under a common name-->
+    <legend>{{ title }}</legend> <!--The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any-->
+    <p> <!-- TITLE -->
+        <label for='playlist-title'>Title</label><br>
+        <input id='playlist-title' type='text' name='title' value=" {{ playlist.title }} "/>
+    </p>
+    <p> <!-- DESCRIPTION -->
+        <label for='description'>Description</label><br>
+        <!-- <input type='text' name='description' /> -->
+        <input id='description' type='text' name='description' value='{{ playlist.description }}' />
+    </p>
+    <p> <!-- VIDEO LINKS -->
+        <label for='playlist-videos'>Videos</label><br>
+        <p>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
+        <textarea id='playlist-videos' name='videos' rows='10'> {{"\n".join(playlist.videos) }}</textarea>
+    </p>
+    <p> <!--RATINGS-->
+        How would you rate the playlist?
+        <select id = "playlist-rating" name="rating"> <!-- drop down defaulted at 5" -->
+            <option value=5 selected = "selected">5</option>
+            <option value=4>4</option>
+            <option value=3>3</option>
+            <option value=2>2</option>
+            <option value=1>1</option>
+        </select>
+    </p>  
+
+</fieldset>
+
+<p>
+    <button type='submit'>Save Playlist</button> <!-- BUTTON -->
+</p>
