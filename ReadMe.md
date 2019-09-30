@@ -195,15 +195,69 @@ $ pip3 install -r requirements.txt
 - ```value = ' '``` = we are using the ```value``` html attribute to pass in the values of the playlist we are trying to edit
 - ```<textarea>{{ }}</textarea>``` - the <textarea> HTML tag does not have a value attribute, so its contents must go between its open and close tags
 - In ```app.py```:
+```
+    @app.route("/playlists/<playlist_id>/edit") #EDIT
+    def playlist_edit(playlist_id):
+        playlist = playlists.find_one({"_id": ObjectId(playlist_id)})
+        return render_template("playlists_edit.html", playlist = playlist, title = "Edit Playlist")
 
+    @app.route("/playlists/<playlist_id>", methods=["POST"]) #UPDATE
+    def playlists_update(playlist_id):
+        updated_playlist = { "title": request.form.get("title"), "description": request.form.get("description"), "videos": request.form.get("videos").split(), "rating": int(request.form.get("rating"))}
+        playlists.update_one(
+            {"_id": ObjectId(playlist_id)},
+            {"$set": updated_playlist})
+        return redirect(url_for("playlists_show", playlist_id = playlist_id))
+```
 - In ```templates/playlists_show.html```:
-
+    ```
+    <form method='POST' action='/playlists'>
+        {% include 'partials/playlists_form.html' %}
+    </form>
+    ```
 - Add a ```templates/playlists_edit.html``` template:
+    ```
+    <form method='POST' action='/playlists/{{playlist._id}}'>
+        {% include 'partials/playlists_form.html' %}
+    </form>
+    ```
+- Create a partials folder inside templates folder and create ```playlists_form.html```
+    ```
+    <fieldset>
+        <legend>{{ title }}</legend>
+        <!-- TITLE -->
+        <p>
+            <label for='playlist-title'>Title</label><br>
+            <input id='playlist-title' type='text' name='title' value='{{ playlist.title }}'/>
+        </p>
+
+        <!-- DESCRIPTION -->
+        <p>
+            <label for='description'>Description</label><br>
+            <input id='description' type='text' name='description' value='{{ playlist.description }}' />
+        </p>
+
+        <!-- VIDEO LINKS -->
+        <p>
+            <label for='playlist-videos'>Videos</label><br>
+            <p>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
+            <textarea id='playlist-videos' name='videos' rows='10' />{{ "\n".join(playlist.videos) }}</textarea>
+        </p>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <p>
+        <button type='submit'>Save Playlist</button>
+    </p>
+
+    ```
 
 - __Partial Template__ - pulling a code out into its own template
-    ```
-    {% include "partials/playlists_form.html" %} <!-- put our form file from playlists_form.html file -->
-    ```
+    - __To put a file from partials folder__ put this in an HTML file you want it to appear at
+        ```
+        {% include "partials/playlists_form.html" %}
+        ```
+    
 
 ----------------------------------------------------------
 
