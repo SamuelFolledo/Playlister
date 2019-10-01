@@ -283,7 +283,22 @@ $ pip3 install -r requirements.txt
 ----------------------------------------------------------
 
 ### [__PAGE 8) ADDING TESTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-tests)
-
+- __unittest__ - use for Unit Testing Framework to run our tests
+- __unittest.mock__ - to mock out sample data
+- __Manual Testing__ - tests if your code is working manually
+- __Regression Test__ - what happens to old tests, and act as sort of a double check that new code didn't break old stuff
+- __Asserts__ - used to check whether we receive the data correctly and what we expect to see from the test Flask client
+- __[unittest](https://docs.python.org/3/library/unittest.html#unittest.TestCase)__ - frame work that has many different assert methods like:
+    | URL                 	| HTTP VERB 	| ACTION  	| WHAT IT DOES              	|
+    |---------------------	|-----------	|---------	|---------------------------	|
+    | /playlists          	| GET       	| index   	| See all playlists         	|
+    | /playlists/new      	| GET       	| new     	| See new playlist form     	|
+    | /playlists          	| POST      	| create  	| Create a new playlist     	|
+    | /playlists/:id      	| GET       	| show    	| See one playlist          	|
+    | /playlists/:id/edit 	| GET       	| edit    	| See an edit playlist form 	|
+    | /playlists/:id      	| PATCH/PUT 	| update  	| Update a playlist         	|
+    | /playlists/:id      	| DELETE    	| destroy 	| Delete a playlist         	|
+    
 
 ----------------------------------------------------------
 
