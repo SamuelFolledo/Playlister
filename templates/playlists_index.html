@@ -9,5 +9,6 @@
     {% for playlist in playlists %}
         <h2><a href = "/playlists/{{playlist._id}}">{{playlist.title}}</a></h2>
         <small>{{ playlist.description }}</small>
+        <small>{{ playlist.rating }}</small>
     {% endfor %}
 {% endblock %}

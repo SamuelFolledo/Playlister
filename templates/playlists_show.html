@@ -2,16 +2,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href='/'>Back to Home</a>
+    <a href='/'>Back to Home</a>
 
-<h1>{{ playlist.title }}</h1>
-<h5>{{ playlist.description }}</h5>
-<p> Rating is: {{playlist.rating}} </p>
+    <h1>{{ playlist.title }}</h1>
+    <h5>{{ playlist.description }}</h5>
+    <!-- <p> Rating is: {{playlist.rating}} </p> -->
 
-{% for video in playlist.videos %}
-    <iframe width='420' height='315' src='{{ video }}'></iframe>
-{% endfor %}
+    {% for video in playlist.videos %}
+        <iframe width='420' height='315' src='{{ video }}'></iframe>
+    {% endfor %}
 
-<p><a href="/playlists/{{ playlist._id }}/edit" >Edit</a></p> <!--***-->
+    <p><a href="/playlists/{{ playlist._id }}/edit" >Edit</a></p> <!--Edit Button-->
+
+    <!-- Delete button -->
+    <p><form method='POST' action='/playlists/{{ playlist._id }}/delete'>
+        <button type='submit'>Delete</button>
+    </form></p>
 
 {% endblock %}
