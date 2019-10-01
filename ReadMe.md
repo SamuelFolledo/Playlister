@@ -391,15 +391,14 @@ class PlaylistsTests(TestCase):
         self.assertEqual(result.status, '302 FOUND')
         mock_delete.assert_called_with({'_id': sample_playlist_id})
 
-
 if __name__ == '__main__':
     unittest_main()
 ```
-
-
 ----------------------------------------------------------
 
 ### [__PAGE 9) STYLING WITH BOOSTRAP__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-bootstrap)
+- __Bootstrap__ - web's most populat CSS Framework with the following elements: _grid, navbar, forms, inputs, buttons_
+- __Responsive__ - Bootstrap's grid system is responsive, meaning it changes depending on the size of the screen that is being shown on
 
 
 ----------------------------------------------------------

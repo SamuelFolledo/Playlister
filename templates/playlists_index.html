@@ -4,11 +4,15 @@
 {% block content %}
     <h1>Playlists</h1>
 
-    <a href="/playlists/new"> New Playlist</a>
+    <!-- <a href="/playlists/new"> New Playlist</a> -->
 
-    {% for playlist in playlists %}
-        <h2><a href = "/playlists/{{playlist._id}}">{{playlist.title}}</a></h2>
-        <small>{{ playlist.description }}</small>
-        <small>{{ playlist.rating }}</small>
-    {% endfor %}
+    <div class='row'>
+        {% for playlist in playlists %}
+            <div class='col-md-3'>
+                <h2><a href='/playlists/{{ playlist._id }}'>{{ playlist.title }}</a></h2>
+                <small>{{ playlist.description }}</small>
+            </div>
+        {% endfor %}
+    </div>
+    
 {% endblock %}
