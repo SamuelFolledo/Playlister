@@ -266,7 +266,19 @@ $ pip3 install -r requirements.txt
 |---------------------	|-----------	|---------	|---------------------------	|
 | /playlists          	| DELETE       	| Destroy   | Delete a playlist         	|
 
-
+- __To Delete from db using _id__-
+    ```
+    playlists.delete_one({'_id': ObjectId(playlist_id)})
+    ```
+- __NOTE__
+    - __render_template__ expects an __.html file__
+        ```
+        return render_template('playlists_edit.html', playlist = playlist, title = 'Edit Playlist')
+        ```
+    - __redirect(url_for())__ expects a function name in ```app.py```
+        ```
+        return redirect(url_for('playlists_show', playlist_id = playlist_id))
+        ```
 
 ----------------------------------------------------------
 
