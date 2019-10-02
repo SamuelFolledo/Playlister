@@ -18,10 +18,10 @@
                 <button class='btn btn-primary' type='submit'>Delete</button>
             </form></p>
 
-            {% include 'partials/comment_form.html' %} <!-- Comment form -->
 
+            {% include 'partials/comment_form.html' %} <!-- Comment form -->
             <hr>
-            {% for comment in comments %}
+            {% for comment in comments %} <!-- Show Comments -->
                 {% include 'partials/comment.html' %}
             {% endfor %}
 

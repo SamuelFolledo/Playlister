@@ -40,8 +40,9 @@ def playlists_submit():
 @app.route('/playlists/<playlist_id>') #SHOW
 def playlists_show(playlist_id):
     '''Show a single playlist'''
-    playlist_id = playlists.find_one({'_id': ObjectId(playlist_id)})
-    return render_template('playlists_show.html', playlist = playlist_id)
+    playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
+    playlist_comments = comments.find({'playlist_id': ObjectId(playlist_id)})
+    return render_template('playlists_show.html', playlist=playlist, comments=playlist_comments)
 
 @app.route('/playlists/<playlist_id>/edit') #EDIT
 def playlist_edit(playlist_id):
@@ -81,14 +82,6 @@ def comments_new():
     print(comment)
     comment_id = comments.insert_one(comment).inserted_id
     return redirect(url_for('playlists_show', playlist_id=request.form.get('playlist_id')))
-
-# app.py
-@app.route('/playlists/<playlist_id>')
-def playlists_show(playlist_id):
-    """Show a single playlist."""
-    playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
-    playlist_comments = comments.find({'playlist_id': ObjectId(playlist_id)})
-    return render_template('playlists_show.html', playlist=playlist, comments=playlist_comments)
 
 
 if __name__ == '__main__':
