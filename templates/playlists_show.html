@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href='/'></a>
+    <a href='/'>Back To Home</a>
     <div class='row'>
         <div class='col-sm-6 col-sm-offset-3'>
             <h1>{{ playlist.title }}</h1>
@@ -17,6 +17,8 @@
                 <input type='hidden' name='_method' value='DELETE'>
                 <button class='btn btn-primary' type='submit'>Delete</button>
             </form></p>
+
+            {% include 'partials/comment_form.html' %} <!-- Comment form -->
         </div>
     </div>
 
