@@ -415,6 +415,57 @@ if __name__ == '__main__':
         ```
         web: gunicorn app:app
         ```
+- create a heroku app named ("Playlister-sf") ```//sf being your initial```
+- This ```heroku create``` command will add our heroku app as a git remote repository that we will be able to ```git push```. We can see our remote repos - ```git remote -v```
+    ``` 
+    $ heroku create playlister-MY-INITIALS
+    $ git remote -v
+    ```
+- Push to Heroku!
+    ```
+    $ git push heroku master
+    $ heroku open
+    ```
+- ```ps:scale``` - additional command needed to run that tells Heroku to assign a free worker to our deployment in order to run your website
+    - just like ```heroku create```, you only need to execute this command once per project
+    ```
+    $ heroku ps:scale web=1
+    ```
+- Whenever you have an error or problem with Heroky, see the logs by running
+    ```
+    $ heroku logs
+    ```
+    - to see continually add a tail
+        ```
+        $ heroku logs --tail
+        ```
+- __Adding a Production Database__ 
+    - Add [mLabs](https://mlab.com), ```mLabs``` is a mongodb heroku add-on that is needed because ```'mongodb://localhost/Playlister'``` URI is in our local computer, and heroku is remote and doesn't have access to that
+        ```
+        $ heroku addons:create mongolab:sandbox
+        ```
+    - Then we have to point to this production mongodb database URI in our ```app.py``` file and use ```os.environ.get``` to get the ```MONGODB_URI``` __environment variable__
+        ```
+        # app.py
+        import os
+        ...
+        host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
+        client = MongoClient(host=host)
+        db = client.get_default_database()
+        playlists = db.playlists
+        ```
+    - You may need to add ```?retryWrites=false``` to your MongoDB URL. so change 'host=' line above to:
+        ```
+        client = MongoClient(host=f'{host}?retryWrites=false')
+        ```
+    - Since Heroku does not use port 5000, it uses another port available in production at the environment variable ```PORT``` just like your mongoDB URI.
+        - fix that by setting the port also with the ```os.environ.get```. Then we have to point to this production mongodb database URI in our ```app.py``` file
+            ```
+            # app.py
+            if __name__ == '__main__':
+            app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
+            ```
+
 
 
 ----------------------------------------------------------
