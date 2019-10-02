@@ -472,11 +472,16 @@ if __name__ == '__main__':
 
 ### [__PAGE 11) ADDING COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-comments)
 
-
 ----------------------------------------------------------
 
 ### [__PAGE 12) ADDING A ROUTE FOR COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/adding-route-for-comments)
+- __Associate__ - keeping track of this relationship
+- The comment will be __child__ to the __parent__ playlist
+- __hidden form field__ - an input tag that has a value that isn't visible in the browser
+- __What just happened?__
+    - You created a relationship between two different document/records in your database. Playlists each have a unique id. By saving the id of a Playlist with a Comment, comments can find the Playlist that they are are associated with. Playlists can also find all of the Comments that are associated with their id.
 
+    - This is a __one to many relationship__. This an important concept in database design, and an important tool you will use when managing data.
 
 ----------------------------------------------------------
 
