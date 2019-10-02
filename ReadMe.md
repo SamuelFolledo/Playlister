@@ -486,7 +486,7 @@ if __name__ == '__main__':
 ----------------------------------------------------------
 
 ### [__PAGE 13) DELETE COMMENTS__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/deleting-comments)
-
+- __Resource Based Development__ and __Resourceful Routing__
 
 ----------------------------------------------------------
 

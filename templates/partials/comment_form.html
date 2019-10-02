@@ -1,10 +1,10 @@
 <!-- templates/partials/comment_form.html -->
 
 <form action='/playlists/comments' method='post'>
+    <input type='hidden' value='{{ playlist._id }}' name='playlist_id'/> <!--hidden form field to the form and set the value to the playlist' id-->
     <fieldset>
         <legend>Add a Comment</legend>
-        <!-- TITLE -->
-        <div class='form-group'>
+        <div class='form-group'> <!-- TITLE -->
             <label for='comment-title'>Title</label><br>
             <input class='form-control'
                 id='comment-title'
@@ -13,8 +13,7 @@
                 placeholder='Title'/>
         </div>
 
-        <!-- DESCRIPTION -->
-        <div class='form-group'>
+        <div class='form-group'> <!-- DESCRIPTION -->
             <label for='comment-content'>Description</label><br>
             <textarea class='form-control'
                 id='comment-content'
@@ -24,8 +23,7 @@
         </div>
     </fieldset>
 
-    <!-- BUTTON -->
-    <div class='form-group'>
+    <div class='form-group'> <!-- BUTTON -->
         <button class='btn btn-primary' type='submit'>Save Comment</button>
     </div>
 </form>
