@@ -404,6 +404,17 @@ if __name__ == '__main__':
 ----------------------------------------------------------
 
 ### [__PAGE 10) PUSH TO PRODUCTION WITH HEROKU__](https://www.makeschool.com/academy/track/standalone/playlistr-video-playlists-with-flask-and-mongodb-1c/push-to-heroku)
+- __[Heroku](https://www.heroku.com)__ - help us make our website live
+- __[Heroku Command Line Interface (CLI)](https://devcenter.heroku.com/articles/heroku-cli)__ - makes it easy to create and manage your Heroku apps directly from the terminal. It’s an essential part of using Heroku
+- __gunicorn__ - a _multi-threaded_ web server which allows our server to perform well when multiple users make requests unlike Flask which is a _single-threaded_ web server
+- __Procfile__ special file that lets Heroku know how to run your website
+    ```
+    $ touch Procfile
+    ```
+    - Paste this to Procfile
+        ```
+        web: gunicorn app:app
+        ```
 
 
 ----------------------------------------------------------
