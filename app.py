@@ -33,7 +33,8 @@ def playlists_submit():
         'title': request.form.get('title'),
         'description': request.form.get('description'),
         'videos': request.form.get('videos').split(),
-        'rating': int(request.form.get('rating'))
+        'rating': int(request.form.get('rating')),
+        'created_at': datetime.now()
     }
     playlist_id = playlists.insert_one(playlist).inserted_id #store the insert_id
     return redirect(url_for('playlists_show', playlist_id = playlist_id))
@@ -89,19 +90,6 @@ def comments_delete(comment_id):
     comment = comments.find_one({'_id': ObjectId(comment_id)})
     comments.delete_one({'_id': ObjectId(comment_id)})
     return redirect(url_for('playlists_show', playlist_id=comment.get('playlist_id')))
-
-@app.route('/playlists', methods=['POST'])
-def playlists_submit():
-    """Submit a new playlist."""
-    playlist = {
-        'title': request.form.get('title'),
-        'description': request.form.get('description'),
-        'videos': request.form.get('videos').split(),
-        'rating': request.form.get('rating'),
-        'created_at': datetime.now()
-    }
-    playlist_id = playlists.insert_one(playlist).inserted_id
-    return redirect(url_for('playlists_show', playlist_id=playlist_id))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
