@@ -6,7 +6,15 @@
     <div class='row'>
         <div class='col-sm-6 col-sm-offset-3'>
             <h1>{{ playlist.title }}</h1>
-            <h3>{{ playlist.description }}</h3> Rating is: {{ playlist.rating }}
+
+            {% if playlist.created_at %}
+                <p class='text-muted'>Created on {{ playlist.created_at.strftime('%A, %d %B, %Y') }}
+                    at {{ playlist.created_at.strftime('%I:%M %p') }}</p>
+            {% endif %}
+
+            <h3>{{ playlist.description }}</h3> 
+            <p class='text-muted'>Rating is: {{ playlist.rating }}</p>
+            
             {% for video in playlist.videos %}
                 <div class="card"><div class="card-body">
                     <iframe width="420" height="315" src="{{ video }}"></iframe>
